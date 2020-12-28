@@ -8,6 +8,8 @@ const userSchema = new mongoose.Schema({
   },
   hashedPassword: {
     type: String,
+    minLength: 3,
+    maxLength: 16,
     required: true
   },
   token: String
