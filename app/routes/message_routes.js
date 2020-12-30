@@ -43,6 +43,22 @@ router.get('/messages', (req, res, next) => {
     .catch(next)
 })
 
+// INDEX
+// GET /messages
+router.get('/profile', requireToken, (req, res, next) => {
+  Message.find({ owner: req.user.id })
+    .then(messages => {
+      // `messages` will be an array of Mongoose documents
+      // we want to convert each one to a POJO, so we use `.map` to
+      // apply `.toObject` to each one
+      return messages.map(message => message.toObject())
+    })
+    // respond with status 200 and JSON of the messages
+    .then(messages => res.status(200).json({ messages: messages }))
+    // if an error occurs, pass it to the handler
+    .catch(next)
+})
+
 // SHOW
 // GET /messages/5a7db6c74d55bc51bdf39793
 router.get('/messages/:id', requireToken, (req, res, next) => {
