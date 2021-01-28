@@ -11,15 +11,15 @@ const messageSchema = new mongoose.Schema({
     },
     state: {
         type: String,
-        default: 'not provided'
+        default: ' '
     },
     facility: {
         type: String,
-        default: 'not provided'
+        default: ' '
     },
     clinician: {
         type: String,
-        default: 'not provided'
+        default: ' '
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
