@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 
 const messageSchema = new mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        default: 'anonymous'
     },
     content: {
         type: String,
@@ -10,12 +11,15 @@ const messageSchema = new mongoose.Schema({
     },
     state: {
         type: String,
+        default: 'not provided'
     },
     facility: {
-        type: String
+        type: String,
+        default: 'not provided'
     },
     clinician: {
-        type: String
+        type: String,
+        default: 'not provided'
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
