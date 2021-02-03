@@ -28,3 +28,12 @@ deployed application.
 To deploy you should first make sure you are on the `master` branch with a
 clean working directory, then you can run `npm run deploy` and wait to see if
 it runs successfully.
+
+## Clearing MongoDB Database
+
+```
+mongo
+use medi-thanks-development
+db.messages.drop()
+db.users.drop()
+```
